@@ -2,7 +2,7 @@ require './student'
 require './person'
 
 class Classroom
-  attr_accessor :students
+  attr_accessor :students, :label
 
   def initialize(label)
     @label = label
