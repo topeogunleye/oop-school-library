@@ -36,4 +36,3 @@ class Person < Namable
     age.to_i >= 18.to_i
   end
 end
-
