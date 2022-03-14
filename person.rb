@@ -21,8 +21,8 @@ class Person < Namable
     @rentals = []
   end
 
-  def add_rental(rental)
-    Rental.new(date, self, person)
+  def add_rental(book, date)
+    Rental.new(date, self, book)
   end
 
   def can_use_services?
