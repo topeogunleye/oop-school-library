@@ -23,7 +23,7 @@ If you installed git you can clone the code to your machine, or download a ZIP o
 git clone https://github.com/topeogunleye/oop-school-library.git
 ```
 
-- Once the files are on your machine, open the _todo-list_ folder in [Visual Studio Code](https://code.visualstudio.com/), and follow the steps in Installation & Set Up
+- Once the files are on your machine, open the _oop-school-library_ folder in [Visual Studio Code](https://code.visualstudio.com/), and follow the steps in Installation & Set Up
 
 ## 🛠 Installation & Set Up
 
