@@ -22,8 +22,7 @@ class Person < Namable
   end
 
   def add_rental(rental)
-    @rentals.push(rental)
-    rental.person = self
+    Rental.new(date, self, person)
   end
 
   def can_use_services?
