@@ -40,6 +40,8 @@ def create_student
   name, age = user_info
   print 'Has parent permission? [Y/N]: '
   parent_permission = gets.chomp
+  print 'Enter the classroom: '
+  classroom = gets.chomp
   case parent_permission.upcase
   when 'Y'
     permission = true
@@ -49,7 +51,7 @@ def create_student
     puts 'Invalid input'
     run
   end
-  student = Student.new(age, name, parent_permission: permission)
+  student = Student.new(classroom, age, name, parent_permission: permission)
   people_store(student)
   success('Student')
 end
