@@ -52,7 +52,7 @@ def create_student
     run
   end
   student = Student.new(age, name, parent_permission: permission)
-  person_store(student)
+  people_store(student)
   success('Student')
 end
 
@@ -61,7 +61,7 @@ def create_teacher
   puts 'Enter the specialization: '
   specialization = gets.chomp
   teacher = Teacher.new(specialization, age, name)
-  person_store(teacher)
+  people_store(teacher)
   success('Teacher')
 end
 
