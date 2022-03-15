@@ -23,8 +23,8 @@ def rentals_store(rental)
   @rentals_arr
 end
 
-def success(_message)
-  put "Successfully created #{message}"
+def success(message)
+  puts "Successfully created #{message}"
 end
 
 def user_info
