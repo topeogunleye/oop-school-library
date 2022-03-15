@@ -115,29 +115,23 @@ def create_rental
   date = gets.chomp
   book = @books_arr[book_index]
   person = @people_arr[person_index]
-  Rental.new(date, person, book)
+  rental = Rental.new(date, person, book)
+  rentals_store(rental)
   success('Rental')
   run
 end
 
-def list_rentals_by_book
-  puts 'Select a book to list [Enter a number]: '
-  book_id = gets.chomp.to_i
-  book = book_arr.find { |bk| bk.id == book_id }
-  rental = book.rentals
-  puts 'Rentals: '
-  rental.each { |rentl| puts "#{rentl.date} - #{rentl.person.name}" }
-  run
-end
-
-def list_rentals_by_person
-  puts 'Select a person to list [Enter a number]: '
+def list_rentals_by_person_id
+  puts 'Enter a person id: '
+  @people_arr.each { |person| puts "#{person.name} - Person ID: #{person.id}" }
   person_id = gets.chomp.to_i
-  person = person_arr.find { |psn| psn.id == person_id }
-  rental = person.rentals
-  puts 'Rentals: '
-  rental.each { |rentl| puts "#{rentl.date} - #{rentl.book.title} by #{rentl.book.author}" }
-  run
+  rentals = @rentals_arr.select { |rental| rental.person.id == person_id }
+
+  if rentals.empty?
+    puts "Person with ID #{person_id} has no rentals yet"
+  else
+    rentals.each { |rentl| puts "#{rentl.date} - #{rentl.book.title}" }
+  end
 end
 
 def exit
@@ -147,14 +141,13 @@ end
 def menu
   puts 'Select an option: '
   puts '1 - List books', '2 - List people', '3 - Create person', '4 - Create book', '5 - Create rental',
-       '6 - List rentals by book', '7 - List rentals by person', '8 - Exit'
+       '6 - List rentals by person_id', '7 - exit'
 end
 
 @menu_hash = {
   1 => method(:list_books), 2 => method(:list_people), 3 => method(:create_person),
   4 => method(:create_book), 5 => method(:create_rental),
-  6 => method(:list_rentals_by_book), 7 => method(:list_rentals_by_person),
-  8 => method(:exit)
+  6 => method(:list_rentals_by_person_id), 7 => method(:exit)
 }
 
 def run
