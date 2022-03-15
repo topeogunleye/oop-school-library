@@ -29,9 +29,11 @@ end
 
 def user_info
   print 'Enter the name of the person: '
+  #rubocop:disable Lint/UselessAssignment
   name = gets.chomp
   print 'Age: '
   age = gets.chomp
+  #rubocop:enable Lint/UselessAssignment
 end
 
 def create_student
