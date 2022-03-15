@@ -34,10 +34,12 @@ def user_info
   print 'Age: '
   age = gets.chomp
   # rubocop:enable Lint/UselessAssignment
+  # return name and age
+  return [name, age]
 end
 
 def create_student
-  user_info
+  name, age = user_info
   print 'Has parent permission? [Y/N]: '
   parent_permission = gets.chomp
   case parent_permission.upcase
@@ -50,7 +52,6 @@ def create_student
     run
   end
   student = Student.new(age, name, parent_permission: permission)
-  student.type = 'Student'
   person_store(student)
   success('Student')
 end
@@ -60,7 +61,6 @@ def create_teacher
   puts 'Enter the specialization: '
   specialization = gets.chomp
   teacher = Teacher.new(specialization, age, name)
-  teacher.type = 'Teacher'
   person_store(teacher)
   success('Teacher')
 end
