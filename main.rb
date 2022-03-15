@@ -55,7 +55,8 @@ def create_student
 end
 
 def create_teacher
-  age, name = user_info
+  # destructure name and age from user info
+  name, age = user_info
   puts 'Enter the specialization: '
   specialization = gets.chomp
   teacher = Teacher.new(specialization, age, name)
@@ -155,11 +156,14 @@ end
 }
 
 def run
-  loop do
     menu
     option = gets.chomp.to_i
-    @menu_hash[option].call
-  end
+    if (option > 0 && option < 9) 
+      @menu_hash[option].call
+    else
+      puts 'Invalid input'
+      run
+    end
 end
 
 run
