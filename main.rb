@@ -141,7 +141,6 @@ end
 
 def exit
   puts 'Goodbye'
-  exit
 end
 
 def menu
