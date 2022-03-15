@@ -32,7 +32,6 @@ def user_info
   name = gets.chomp
   print 'Age: '
   age = gets.chomp
-  # return name and age
   [name, age]
 end
 
