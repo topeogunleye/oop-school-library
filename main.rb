@@ -29,13 +29,11 @@ end
 
 def user_info
   print 'Enter the name of the person: '
-  # rubocop:disable Lint/UselessAssignment
   name = gets.chomp
   print 'Age: '
   age = gets.chomp
-  # rubocop:enable Lint/UselessAssignment
   # return name and age
-  return [name, age]
+  [name, age]
 end
 
 def create_student
@@ -57,7 +55,7 @@ def create_student
 end
 
 def create_teacher
-  age,name = user_info
+  age, name = user_info
   puts 'Enter the specialization: '
   specialization = gets.chomp
   teacher = Teacher.new(specialization, age, name)
