@@ -57,7 +57,7 @@ def create_student
 end
 
 def create_teacher
-  user_info
+  age,name = user_info
   puts 'Enter the specialization: '
   specialization = gets.chomp
   teacher = Teacher.new(specialization, age, name)
