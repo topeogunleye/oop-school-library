@@ -68,7 +68,7 @@ end
 # Menu Operations
 
 def list_books
-  @books_arr.each do |_book|
+  @books_arr.each do |book|
     puts "#{book.title} by #{book.author}"
   end
   run
