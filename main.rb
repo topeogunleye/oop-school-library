@@ -69,14 +69,13 @@ end
 
 def list_books
   @books_arr.each do |book|
-    puts "#{book} Name: #{book.title} by #{book.author}"
+    puts "Title: #{book.title}, Author: #{book.author}"
   end
   run
 end
 
 def list_people
-  @people_arr.each { |person| puts "[#{person.class}]: Name: #{person.name},
-  ID: #{person.id} AGE: #{person.age}" }
+  @people_arr.each { |person| puts "[#{person.class}]: Name: #{person.name}, ID: #{person.id} AGE: #{person.age}" }
   run
 end
 
