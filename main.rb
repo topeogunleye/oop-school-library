@@ -69,13 +69,13 @@ end
 
 def list_books
   @books_arr.each do |book|
-    puts "#{book.title} by #{book.author}"
+    puts "#{book} Name: #{book.title} by #{book.author}"
   end
   run
 end
 
 def list_people
-  @people_arr.each { |person| puts "#{person.name} - #{person.age}" }
+  @people_arr.each { |person| puts "[#{person.class}] #{person.name} - #{person.age}" }
   run
 end
 
@@ -108,7 +108,7 @@ def create_rental
   @books_arr.each_with_index { |book, index| puts "#{index} - #{book.title}" }
   book_index = gets.chomp.to_i
   puts 'Select a person to rent [Enter a number]: '
-  @people_arr.each_with_index { |person, index| puts "#{index} - #{person.name}" }
+  @people_arr.each_with_index { |person, index| puts "#{index} [#{person.class}]: Name: #{person.name}, ID: #{person.id} AGE: #{person.age}" }
   person_index = gets.chomp.to_i
   print 'Enter the date [YYYY-MM-DD]: '
   date = gets.chomp
@@ -131,6 +131,7 @@ def list_rentals_by_person_id
   else
     rentals.each { |rentl| puts "#{rentl.date} - #{rentl.book.title}" }
   end
+  run
 end
 
 def exit
