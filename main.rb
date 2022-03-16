@@ -75,7 +75,8 @@ def list_books
 end
 
 def list_people
-  @people_arr.each { |person| puts "[#{person.class}]: Name: #{person.name}, ID: #{person.id} AGE: #{person.age}" }
+  @people_arr.each { |person| puts "[#{person.class}]: Name: #{person.name},
+  ID: #{person.id} AGE: #{person.age}" }
   run
 end
 
