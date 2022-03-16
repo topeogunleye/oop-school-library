@@ -131,7 +131,7 @@ def list_rentals_by_person_id
   if rentals.empty?
     puts "Person with ID #{person_id} has no rentals yet"
   else
-    rentals.each { |rentl| puts "#{rentl.date} - #{rentl.book.title}" }
+    rentals.each { |rentl| puts "Date: #{rentl.date}, Book #{rentl.book.title} by #{rentl.book.author}" }
   end
   run
 end
