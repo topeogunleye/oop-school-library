@@ -107,7 +107,7 @@ def create_rental
   puts 'Select a book to rent [Enter a number]: '
   @books_arr.each_with_index { |book, index| puts "#{index} - #{book.title}" }
   book_index = gets.chomp.to_i
-  puts 'Select a person to rent [Enter a number]: '
+  puts 'Select a person from the following list by number (not id) '
   @people_arr.each_with_index do |person, index|
     puts "#{index} [#{person.class}]: Name: #{person.name}, ID: #{person.id} AGE: #{person.age}"
   end
