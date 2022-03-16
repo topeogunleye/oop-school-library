@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './book'
 require './person'
 require './student'
@@ -108,9 +110,9 @@ def create_rental
   @books_arr.each_with_index { |book, index| puts "#{index} - #{book.title}" }
   book_index = gets.chomp.to_i
   puts 'Select a person to rent [Enter a number]: '
-  @people_arr.each_with_index { |person, index| puts "#{index} 
-  [#{person.class}]: Name: #{person.name}, ID: #{person.id} 
-  AGE: #{person.age}" }
+  @people_arr.each_with_index do |person, index|
+    puts "#{index} [#{person.class}]: Name: #{person.name}, ID: #{person.id} AGE: #{person.age}"
+  end
   person_index = gets.chomp.to_i
   print 'Enter the date [YYYY-MM-DD]: '
   date = gets.chomp
