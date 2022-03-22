@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # In the constructor assign a namable object from params to an instance variable.
 require './namable'
 
