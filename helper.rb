@@ -1,4 +1,4 @@
-require './menu_operations'
+require './operations'
 
 # helpers
 class Helper
@@ -27,7 +27,7 @@ class Helper
     end
     student = Student.new(classroom, age, name, parent_permission: permission)
     student.parent_permission = permission
-    Menu_Operations.push(student)
+    Operations.push(student)
     success('Student')
   end
 
@@ -38,7 +38,7 @@ class Helper
     specialization = gets.chomp
     teacher = Teacher.new(specialization, age, name)
     teacher.specialization = specialization
-    Menu_Operations.push(teacher)
+    Operations.push(teacher)
     success('Teacher')
   end
 
