@@ -3,7 +3,6 @@ require './person'
 require './student'
 require './rental'
 require './teacher'
-require './store'
 require './helper'
 require './menu_operations'
 
