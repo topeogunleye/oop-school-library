@@ -1,6 +1,8 @@
-# Person Class
+# frozen_string_literal: true
+
 require './namable'
 
+# Person Class
 class Person < Namable
   # add correct_name method that returns the name attribute.
   def correct_name

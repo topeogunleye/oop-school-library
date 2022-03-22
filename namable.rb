@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Namable
   def initialize(name = 'Unknown')
     @name = name

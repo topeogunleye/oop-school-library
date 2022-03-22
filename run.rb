@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './book'
 require './person'
 require './student'
@@ -25,7 +27,7 @@ def menu_list(num)
     Menu_Operations.create_book
   when 5
     Menu_Operations.create_rental
-  when 6 
+  when 6
     Menu_Operations.list_rentals_by_person_id
   when 7
     Menu_Operations.exit

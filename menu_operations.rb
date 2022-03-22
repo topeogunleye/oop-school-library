@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Imports
 require './helper'
 require 'json'
@@ -5,18 +7,17 @@ require './run'
 
 # Menu Operations
 class Menu_Operations
-
   def self.push(item)
     if item.is_a?(Person)
       Helper.create_file_if_not_exist('people.json')
       people_arr = Helper.read_convert('people.json')
 
-      if item.class == Student
+      if item.instance_of?(Student)
         people_arr.push({ class: item.class, 'name' => item.name, 'id' => item.id, 'age' => item.age,
-          'parent_permission' => item.parent_permission, 'rentals' => item.rentals })
+                          'parent_permission' => item.parent_permission, 'rentals' => item.rentals })
       else
         people_arr.push({ class: item.class, 'name' => item.name, 'id' => item.id, 'age' => item.age,
-          'specialization' => item.specialization, 'rentals' => item.rentals })
+                          'specialization' => item.specialization, 'rentals' => item.rentals })
       end
 
       File.write('people.json', people_arr.to_json)
@@ -30,8 +31,9 @@ class Menu_Operations
 
   def self.list_books
     if File.exist?('books.json')
-      JSON.parse(File.read('books.json')).each { |book|
-      puts "Title: #{book['title']}, Author: #{book['author']}" }
+      JSON.parse(File.read('books.json')).each do |book|
+        puts "Title: #{book['title']}, Author: #{book['author']}"
+      end
     else
       File.open('books.json', 'w')
       File.write('books.json', '[]')
@@ -40,8 +42,9 @@ class Menu_Operations
 
   def self.list_people
     if File.exist?('people.json')
-      JSON.parse(File.read('people.json')).each { |person|
-      puts "Type: #{person['class']}, Name: #{person['name']}, ID: #{person['id']}, Age: #{person['age']}" }
+      JSON.parse(File.read('people.json')).each do |person|
+        puts "Type: #{person['class']}, Name: #{person['name']}, ID: #{person['id']}, Age: #{person['age']}"
+      end
     else
       File.open('people.json', 'w')
       File.write('people.json', '[]')

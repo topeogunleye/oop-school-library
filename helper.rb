@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './menu_operations'
 
 # helpers
@@ -11,7 +13,7 @@ class Helper
   end
 
   def self.create_student
-    name, age = self.user_info
+    name, age = user_info
     print 'Has parent permission? [Y/N]: '
     parent_permission = gets.chomp
     print 'Enter the classroom: '
@@ -33,7 +35,7 @@ class Helper
 
   def self.create_teacher
     # destructure name and age from user info
-    name, age = self.user_info
+    name, age = user_info
     puts 'Enter the specialization: '
     specialization = gets.chomp
     teacher = Teacher.new(specialization, age, name)
@@ -44,7 +46,7 @@ class Helper
 
   def self.create_file_if_not_exist(file)
     File.open(file, 'w') unless File.exist?(file)
-    File.write(file, '[]') 
+    File.write(file, '[]')
   end
 
   def self.read_convert(filename)
