@@ -6,6 +6,10 @@ require './teacher'
 require './helper'
 require './operations'
 
+def exit
+  puts 'Goodbye'
+end
+
 def menu
   puts 'Select an option: '
   puts '1 - List books', '2 - List people', '3 - Create person', '4 - Create book', '5 - Create rental',
@@ -26,16 +30,16 @@ def menu_list(num)
     Operations.create_rental
   when 6
     Operations.list_rentals_by_person_id
-  when 7
-    Operations.exit
   end
 end
 
 def run
   menu
   option = gets.chomp.to_i
-  if option.positive? && option < 9
+  if option.positive? && option < 9 && option != 7
     menu_list(option)
+  elsif option == 7
+    exit
   else
     puts 'Invalid input'
     run
