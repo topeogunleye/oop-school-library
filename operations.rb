@@ -4,7 +4,7 @@ require 'json'
 require './run'
 
 # Menu Operations
-class Menu_Operations
+class Operations
   def self.push(item)
     if item.is_a?(Person)
       Helper.create_file_if_not_exist('people.json')
@@ -69,7 +69,7 @@ class Menu_Operations
     puts 'Author: '
     author = gets.chomp
     book = Book.new(title, author)
-    Menu_Operations.push(book)
+    Operations.push(book)
     Helper.success('Book')
     run
   end
@@ -88,7 +88,7 @@ class Menu_Operations
     book = @books_arr[book_index]
     person = @people_arr[person_index]
     rental = Rental.new(date, person, book)
-    Menu_Operations.push(rental)
+    Operations.push(rental)
     Helper.success('Rental')
     run
   end
