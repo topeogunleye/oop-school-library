@@ -4,7 +4,7 @@ require './student'
 require './rental'
 require './teacher'
 require './helper'
-require './menu_operations'
+require './operations'
 
 def menu
   puts 'Select an option: '
@@ -15,19 +15,19 @@ end
 def menu_list(num)
   case num
   when 1
-    Menu_Operations.list_books
+    Operations.list_books
   when 2
-    Menu_Operations.list_people
+    Operations.list_people
   when 3
-    Menu_Operations.create_person
+    Operations.create_person
   when 4
-    Menu_Operations.create_book
+    Operations.create_book
   when 5
-    Menu_Operations.create_rental
+    Operations.create_rental
   when 6
-    Menu_Operations.list_rentals_by_person_id
+    Operations.list_rentals_by_person_id
   when 7
-    Menu_Operations.exit
+    Operations.exit
   end
 end
 
