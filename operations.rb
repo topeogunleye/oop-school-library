@@ -36,6 +36,7 @@ class Operations
       File.open('books.json', 'w')
       File.write('books.json', '[]')
     end
+    run
   end
 
   def self.list_people
@@ -107,7 +108,4 @@ class Operations
     run
   end
 
-  def self.exit
-    puts 'Goodbye'
-  end
 end
