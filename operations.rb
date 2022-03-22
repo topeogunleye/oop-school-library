@@ -107,5 +107,4 @@ class Operations
     end
     run
   end
-
 end
