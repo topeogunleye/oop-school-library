@@ -74,7 +74,7 @@ class Operations
     run
   end
 
-  def self.divide_create_rental  
+  def self.divide_create_rental
     Helper.create_file_if_not_exist('books.json')
     books_arr = JSON.parse(File.read('books.json'))
     puts 'Select a book from the following list by number'
@@ -91,11 +91,11 @@ class Operations
       puts "#{index} [#{person['class']}]: Name: #{person['name']}, ID: #{person['id']} AGE: #{person['age']}"
     end
     person_index = gets.chomp.to_i
-    [book_index, person_index,people_arr, books_arr]
+    [book_index, person_index, people_arr, books_arr]
   end
 
   def self.create_rental
-    book_index, person_index,people_arr,books_arr = divide_create_rental
+    book_index, person_index, people_arr, books_arr = divide_create_rental
     print 'Enter the date [YYYY-MM-DD]: '
     date = gets.chomp
     Helper.create_file_if_not_exist('rentals.json')
@@ -103,7 +103,6 @@ class Operations
     book = books_arr[book_index]
     person = people_arr[person_index]
     rental = Rental.new(date, person, book)
-    puts rental
     new_people_arr = people_arr.each do |item|
       if item['id'] == person['id']
         person['rentals'] << { 'date' => rental.date, 'author' => rental.book['author'],
