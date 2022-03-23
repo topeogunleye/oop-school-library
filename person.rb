@@ -1,24 +1,25 @@
-require './namable'
+require "./namable"
+require "./Corrector"
 
 # Person Class
 class Person < Namable
   attr_accessor :name, :age, :type, :rentals
   attr_reader :id
 
-  # add correct_name method that returns the name attribute.
-  def correct_name
-    @name
-  end
-
   def initialize(age,
-                 name = 'Unknown',
+                 name = "Unknown",
                  parent_permission: true)
     super(name)
     @id = Random.rand(1..1000)
     @age = age
     @name = name
     @parent_permission = parent_permission
+    @corrector = Corrector.new
     @rentals = []
+  end
+
+  def validate_name(name)
+    @corrector.correct_name(name)
   end
 
   def add_rental(book, date)
