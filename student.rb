@@ -1,7 +1,9 @@
 require './person'
+
 # Student Class Inheriting From Person Class
 class Student < Person
   attr_reader :classroom
+  attr_accessor :parent_permission
 
   def initialize(classroom, age, name = 'Unknown', parent_permission: true)
     super(age, name, parent_permission: true)
