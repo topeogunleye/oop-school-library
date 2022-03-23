@@ -1,5 +1,5 @@
 require './namable'
-require './Corrector'
+require './corrector'
 
 # Person Class
 class Person < Namable

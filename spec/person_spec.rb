@@ -4,7 +4,7 @@ require_relative '../rental'
 
 describe Person do
   before :all do
-    @person = Person.new(30, 'Furkan')
+    @person = Person.new(30, 'John')
     @person.type = 'Student'
   end
 
@@ -29,7 +29,7 @@ describe Person do
     end
 
     it 'should be able to read the name property' do
-      expect(@person.name).to eq 'Furkan'
+      expect(@person.name).to eq 'John'
     end
 
     it 'should be able to write to the name property' do
