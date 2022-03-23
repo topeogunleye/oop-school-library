@@ -69,12 +69,12 @@ class Operations
     puts 'Author: '
     author = gets.chomp
     book = Book.new(title, author)
-    self.push(book)
+    push(book)
     Helper.success('Book')
     run
   end
 
-  def self.create_rental
+  def self.divide_create_rental  
     Helper.create_file_if_not_exist('books.json')
     books_arr = JSON.parse(File.read('books.json'))
     puts 'Select a book from the following list by number'
@@ -82,16 +82,20 @@ class Operations
     book_index = gets.chomp.to_i
     puts 'Select a person from the following list by number (not id)'
     if File.exist?('people.json')
-      people_arr = JSON.parse(File.read('people.json')) 
+      people_arr = JSON.parse(File.read('people.json'))
     else
-      File.open('people.json', 'w') 
+      File.open('people.json', 'w')
       File.write('people.json', '[]')
     end
     people_arr.each_with_index do |person, index|
       puts "#{index} [#{person['class']}]: Name: #{person['name']}, ID: #{person['id']} AGE: #{person['age']}"
     end
     person_index = gets.chomp.to_i
+    [book_index, person_index,people_arr, books_arr]
+  end
 
+  def self.create_rental
+    book_index, person_index,people_arr,books_arr = divide_create_rental
     print 'Enter the date [YYYY-MM-DD]: '
     date = gets.chomp
     Helper.create_file_if_not_exist('rentals.json')
@@ -107,7 +111,8 @@ class Operations
       end
     end
     File.write('people.json', new_people_arr.to_json)
-    json_rental = rentals_arr.push({ 'date' => rental.date, 'person' => rental.person['id'], 'book' => rental.book['id'] })
+    json_rental = rentals_arr.push({ 'date' => rental.date, 'person' => rental.person['id'],
+                                     'book' => rental.book['id'] })
     File.write('rentals.json', json_rental.to_json)
     Helper.success('Rental')
     run
