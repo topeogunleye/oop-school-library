@@ -1,4 +1,6 @@
 require_relative '../book'
+require_relative '../person'
+require_relative '../rental'
 
 describe Book do
   let(:book) { Book.new('The Hobbit', 'J.R.R. Tolkien', 'Fantasy') }
