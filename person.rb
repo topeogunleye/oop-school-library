@@ -2,16 +2,13 @@ require './namable'
 
 # Person Class
 class Person < Namable
-  attr_accessor :name, :age, :type
-  attr_reader :id, :rentals
-  
+  attr_accessor :name, :age, :type, :name, :age, :rentals
+  attr_reader :id, :rentals, :id
+
   # add correct_name method that returns the name attribute.
   def correct_name
     @name
   end
-
-  attr_accessor :name, :age, :rentals
-  attr_reader :id
 
   def initialize(age,
                  name = 'Unknown',

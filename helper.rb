@@ -31,7 +31,6 @@ class Helper
     end
   end
 
-
   def self.create_student
     name, age = user_info
     print 'Has parent permission? [Y/N]: '
