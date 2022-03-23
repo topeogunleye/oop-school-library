@@ -10,6 +10,28 @@ class Helper
     [name, age]
   end
 
+  def self.push(item)
+    if item.is_a?(Person)
+      Helper.create_file_if_not_exist('people.json')
+      people_arr = Helper.read_convert('people.json')
+
+      if item.instance_of?(Student)
+        people_arr.push({ class: item.class, 'name' => item.name, 'id' => item.id, 'age' => item.age,
+                          'parent_permission' => item.parent_permission, 'rentals' => item.rentals })
+      else
+        people_arr.push({ class: item.class, 'name' => item.name, 'id' => item.id, 'age' => item.age,
+                          'specialization' => item.specialization, 'rentals' => item.rentals })
+      end
+
+      File.write('people.json', people_arr.to_json)
+    else
+      Helper.create_file_if_not_exist('books.json')
+      books_arr = Helper.read_convert('books.json').push({ 'title' => item.title, 'author' => item.author })
+      File.write('books.json', books_arr.to_json)
+    end
+  end
+
+
   def self.create_student
     name, age = user_info
     print 'Has parent permission? [Y/N]: '
@@ -42,9 +64,11 @@ class Helper
     success('Teacher')
   end
 
-  def self.create_file_if_not_exist(file)
-    File.open(file, 'w') unless File.exist?(file)
-    File.write(file, '[]')
+  def self.create_file_if_not_exist(file_name)
+    return unless File.exist?(file_name) == false
+
+    File.open(file_name, 'w')
+    File.write(file_name, '[]')
   end
 
   def self.read_convert(filename)
