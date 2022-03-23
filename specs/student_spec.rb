@@ -7,6 +7,5 @@ describe Student do
     it 'has the class of Student' do
       expect(student.instance_of?(Student)) == true
     end
-    
   end
 end
