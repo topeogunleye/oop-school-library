@@ -1,5 +1,5 @@
-require "./namable"
-require "./Corrector"
+require './namable'
+require './Corrector'
 
 # Person Class
 class Person < Namable
@@ -7,7 +7,7 @@ class Person < Namable
   attr_reader :id
 
   def initialize(age,
-                 name = "Unknown",
+                 name = 'Unknown',
                  parent_permission: true)
     super(name)
     @id = Random.rand(1..1000)
