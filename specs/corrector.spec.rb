@@ -1,32 +1,22 @@
 relative_require '../corrector'
 
-describe Corrector do
-  let(:book) { Book.new('The Hobbit', 'J.R.R. Tolkien', 'Fantasy') }
-  let(:person) { Person.new(20, 'John Doe') }
-  let(:rental) { Rental.new(Date.today, person, book) }
-
-  describe '#initialize' do
-    it 'should set the title' do
-      expect(book.title).to eq('The Hobbit')
+describe 'Test of the corrector class' do
+  context 'check instance method' do
+    it 'should capitalize the first letter of the title' do
+      name = 'victor'
+      corrected_name = Corrector.new
+      expect(corrected_name.correct_name(name)).to eq('Victor')
     end
 
-    it 'should set the author' do
-      expect(book.author).to eq('J.R.R. Tolkien')
+    it 'should slice letters after the tenth letter' do
+      letters = 'abcdefghijklmnopqrstuvwxyz'
+      corrected_name = Corrector.new
+      expect(corrected_name.correct_name(letters)).to eq('abcdefghij')
     end
 
-    it 'should set the type' do
-      expect(book.type).to eq('Fantasy')
-    end
-
-    it 'should set the rentals' do
-      expect(book.rentals).to eq([])
-    end
-  end
-
-  describe '#add_rental' do
-    it 'should add a rental to the book' do
-      book.add_rental(rental)
-      expect(book.rentals).to eq([rental])
+    it 'should return the variable passed unchanged' do
+      name = 'victor'
+      expect(name).to eq('victor')
     end
   end
 end
