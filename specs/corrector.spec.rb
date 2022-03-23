@@ -1,4 +1,4 @@
-relative_require '../corrector'
+require_relative '../corrector'
 
 describe 'Test of the corrector class' do
   context 'check instance method' do

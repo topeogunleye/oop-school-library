@@ -1,4 +1,4 @@
-relative_require '../classroom'
+require_relative '../classroom'
 
 describe 'Test of the classroom' do
   before(:each) do
