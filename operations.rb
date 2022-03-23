@@ -21,8 +21,7 @@ class Operations
       File.write('people.json', people_arr.to_json)
     else
       Helper.create_file_if_not_exist('books.json')
-      books_arr = Helper.read_convert('books.json')
-      books_arr.push({ 'title' => item.title, 'author' => item.author })
+      books_arr = Helper.read_convert('books.json').push({ 'title' => item.title, 'author' => item.author })
       File.write('books.json', books_arr.to_json)
     end
   end
@@ -70,40 +69,62 @@ class Operations
     puts 'Author: '
     author = gets.chomp
     book = Book.new(title, author)
-    Operations.push(book)
+    self.push(book)
     Helper.success('Book')
     run
   end
 
   def self.create_rental
+    Helper.create_file_if_not_exist('books.json')
+    books_arr = JSON.parse(File.read('books.json'))
     puts 'Select a book from the following list by number'
-    books_arr.each_with_index { |book, index| puts "#{index} Title: #{book.title}, Author: #{book.author}" }
+    books_arr.each_with_index { |book, index| puts "#{index} Title: #{book['title']}, Author: #{book['author']}" }
     book_index = gets.chomp.to_i
     puts 'Select a person from the following list by number (not id)'
+    if File.exist?('people.json')
+      people_arr = JSON.parse(File.read('people.json')) 
+    else
+      File.open('people.json', 'w') 
+      File.write('people.json', '[]')
+    end
     people_arr.each_with_index do |person, index|
-      puts "#{index} [#{person.class}]: Name: #{person.name}, ID: #{person.id} AGE: #{person.age}"
+      puts "#{index} [#{person['class']}]: Name: #{person['name']}, ID: #{person['id']} AGE: #{person['age']}"
     end
     person_index = gets.chomp.to_i
+
     print 'Enter the date [YYYY-MM-DD]: '
     date = gets.chomp
-    book = @books_arr[book_index]
-    person = @people_arr[person_index]
+    Helper.create_file_if_not_exist('rentals.json')
+    rentals_arr = JSON.parse(File.read('rentals.json'))
+    book = books_arr[book_index]
+    person = people_arr[person_index]
     rental = Rental.new(date, person, book)
-    Operations.push(rental)
+    puts rental
+    new_people_arr = people_arr.each do |item|
+      if item['id'] == person['id']
+        person['rentals'] << { 'date' => rental.date, 'author' => rental.book['author'],
+                               'title' => rental.book['title'] }
+      end
+    end
+    File.write('people.json', new_people_arr.to_json)
+    json_rental = rentals_arr.push({ 'date' => rental.date, 'person' => rental.person['id'], 'book' => rental.book['id'] })
+    File.write('rentals.json', json_rental.to_json)
     Helper.success('Rental')
     run
   end
 
   def self.list_rentals_by_person_id
     puts 'Enter a person id: '
-    @people_arr.each { |person| puts "#{person.name} - Person ID: #{person.id}" }
+    JSON.parse(File.read('people.json')).each do |person|
+      puts "Type: #{person['class']}, Name: #{person['name']} - ID: #{person['id']}"
+    end
     person_id = gets.chomp.to_i
-    rentals = @rentals_arr.select { |rental| rental.person.id == person_id }
-
+    person = JSON.parse(File.read('people.json')).find { |prsn| prsn['id'] == person_id }
+    rentals = person['rentals']
     if rentals.empty?
       puts "Person with ID #{person_id} has no rentals yet"
     else
-      rentals.each { |rentl| puts "Date: #{rentl.date}, Book #{rentl.book.title} by #{rentl.book.author}" }
+      rentals.each { |rentl| puts "Date: #{rentl['date']}, Book #{rentl['title']} by #{rentl['author']}" }
     end
     run
   end
