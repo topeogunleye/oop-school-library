@@ -11,10 +11,5 @@ describe 'Test of the corrector class' do
       person = Person.new(20, 'John Doe')
       expect(person.can_use_services?).to eq(true)
     end
-
-    it 'should check if person is not of age?' do
-      person = Person.new(17, 'John Doe')
-      expect(person.of_age?).to eq(false)
-    end
   end
 end
