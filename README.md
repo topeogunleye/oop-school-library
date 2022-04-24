@@ -1,7 +1,7 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
 # oop-school-library
-> oop school library app with Ruby programming language where students can list and create books, students or teachers.
+> oop school library app where users can create and list books, students or teachers.
 
 ## Built With
 
