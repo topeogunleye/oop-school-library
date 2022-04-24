@@ -1,13 +1,12 @@
-# oop-school-library
-building a oop school library app with Ruby programming language
-
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-Additional description about the project and its features.
+# oop-school-library
+> oop school library app where users can create and list books, students or teachers.
 
 ## Built With
 
 - Ruby
+
 ## Getting Started
 To get a local copy up and running, follow the steps in Setup below.
 
@@ -36,7 +35,7 @@ git clone https://github.com/topeogunleye/oop-school-library.git
 2. Run files locally
 
    ```sh
-   ruby person.rb
+   ruby filename.rb
    ```
 ### Install
 
@@ -48,9 +47,10 @@ The following tools help make easier to work with sample code.
 
 👤 **Temitope Ogunleye**
 
-- GitHub: [@githubhandle](https://github.com/topeogunleye)
-- Twitter: [@twitterhandle](https://twitter.com/topeogunleye21)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/ogunleye)
+- GitHub: [@topeogunleye](https://github.com/topeogunleye)
+- Twitter: [@tope_leye](https://twitter.com/tope_leye)
+- LinkedIn: [ogunleye](https://linkedin.com/in/ogunleye)
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
