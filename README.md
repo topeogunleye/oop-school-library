@@ -35,7 +35,7 @@ git clone https://github.com/topeogunleye/oop-school-library.git
 2. Run files locally
 
    ```sh
-   ruby person.rb
+   ruby filename.rb
    ```
 ### Install
 
