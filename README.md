@@ -1,13 +1,12 @@
-# oop-school-library
-building a oop school library app with Ruby programming language
-
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-Additional description about the project and its features.
+# oop-school-library
+> oop school library app with Ruby programming language where students can list and create books, students or teachers.
 
 ## Built With
 
 - Ruby
+
 ## Getting Started
 To get a local copy up and running, follow the steps in Setup below.
 
